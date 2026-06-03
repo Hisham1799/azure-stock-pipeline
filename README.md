@@ -48,7 +48,18 @@ The pipeline runs automatically every day at midnight IST via a schedule trigger
 **Cost discipline:** Single-node Databricks cluster with 10-minute auto-termination. All pipeline runs use jobs compute. Dataset size kept at 5–50 MB micro-batches.
 
 **Delta Lake over plain Parquet:** Silver and gold layers use Delta format for ACID guarantees, time travel, and schema enforcement — enabling the incremental load pattern in Phase 3.
+## Notebooks
 
+| Notebook | Purpose |
+|---|---|
+| `databricks/01_bronze_to_silver.py` | Ingests bronze JSON, writes silver Delta, aggregates gold Delta KPIs |
+| `databricks/02_incremental_scd2.py` | SCD Type 2 incremental load using Delta MERGE — preserves full price history |
+
+## SQL Scripts
+
+| Script | Purpose |
+|---|---|
+| `synapse/sql_serve_gold_stock_summary.sql` | Creates external table over gold Delta in Synapse serverless SQL pool |
 ## Planned: Phase 3
 
 - [ ] Synapse serverless SQL external tables over gold Delta
