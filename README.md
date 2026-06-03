@@ -4,7 +4,7 @@ An automated, production-grade financial batch data pipeline built on Azure, dem
 
 ## Architecture
 
-
+![Pipeline Architecture](architecture.png)
 
 ## What This Pipeline Does
 
